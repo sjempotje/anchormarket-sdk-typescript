@@ -1,0 +1,76 @@
+name: Generate SDK
+
+on:
+  workflow_dispatch:
+    inputs:
+      generator:
+        required: true
+        type: string
+      openapi_path:
+        required: true
+        type: string
+      source_repo:
+        required: true
+        type: string
+      source_sha:
+        required: true
+        type: string
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download OpenAPI
+        run: |
+          curl -L "${{ inputs.openapi_url }}" -o openapi.json
+
+      - name: Extract OpenAPI
+        run: |
+          mkdir openapi
+          tar -xzf downloaded.tar.gz -C openapi --strip-components=1
+
+      - name: Install OpenAPI Generator
+        run: |
+          npm install -g @openapitools/openapi-generator-cli
+
+      - name: Generate SDK
+        run: |
+          openapi-generator-cli generate \
+            -i openapi/AnchorMarket.Api.json \
+            -g ${{ inputs.generator }} \
+            -o generated
+
+      - name: Create branch
+        run: |
+          BRANCH=sdk-update-${{ inputs.source_sha }}
+          git checkout -b $BRANCH
+          echo "BRANCH=$BRANCH" >> $GITHUB_ENV
+
+      - name: Commit changes
+        run: |
+          rsync -av --delete generated/ ./
+          git config user.name "sdk-bot"
+          git config user.email "sdk-bot@users.noreply.github.com"
+          git add .
+          git commit -m "chore: regenerate SDK from ${{ inputs.source_sha }}" || exit 0
+
+      - name: Push branch
+        run: |
+          git push origin $BRANCH
+
+      - name: Create Pull Request
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            await github.rest.pulls.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: "chore: regenerate SDK",
+              head: process.env.BRANCH,
+              base: "main",
+              body: "Auto-generated SDK from `${{ inputs.source_repo }}@${{ inputs.source_sha }}`"
+            });

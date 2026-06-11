@@ -1,6 +1,6 @@
 {
-  "name": "",
-  "version": "",
+  "name": "@anchormarket/anchormarket-sdk-typescript",
+  "version": "1.0.1",
   "description": "OpenAPI client for ",
   "author": "OpenAPI-Generator Contributors",
   "repository": {
@@ -32,10 +32,13 @@
     "prepare": "npm run build"
   },
   "dependencies": {
-    "whatwg-fetch": "^3.0.0",
-    "es6-promise": "^4.2.4"
+    "es6-promise": "^4.2.4",
+    "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
     "typescript": "^5.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   }
 }

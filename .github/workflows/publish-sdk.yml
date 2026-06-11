@@ -18,14 +18,14 @@ jobs:
         with:
           node-version: '20'
           registry-url: 'https://npm.pkg.github.com'
-          scope: '@anchormarket'
+          scope: '@sjempotje'
 
       - name: Set package name and version
         run: |
           node -e "
             const fs = require('fs');
             const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
-            pkg.name = '@anchormarket/anchormarket-sdk-typescript';
+            pkg.name = '@sjempotje/anchormarket-sdk-typescript';
             pkg.publishConfig = { registry: 'https://npm.pkg.github.com' };
             fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2));
           "

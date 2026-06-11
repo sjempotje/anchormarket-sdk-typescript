@@ -51,6 +51,9 @@ jobs:
       - name: Commit changes
         run: |
           rsync -av --delete --exclude='.git' --exclude='.github' --exclude='openapi.json' --exclude='openapitools.json' --exclude='generated' generated/ ./ || [ $? -eq 24 ]
+          npm pkg set name="@anchormarket/anchormarket-sdk-typescript"
+          npm pkg set version="${{ inputs.source_version }}"
+          npm pkg set publishConfig.registry="https://npm.pkg.github.com"
           git config user.name "sdk-bot"
           git config user.email "sdk-bot@users.noreply.github.com"
           git add .

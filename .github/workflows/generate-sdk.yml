@@ -50,7 +50,8 @@ jobs:
 
       - name: Commit changes
         run: |
-          cp -r generated/. ./
+          rsync -av --delete --exclude='.git' --exclude='.github' --exclude='openapi.json' --exclude='openapitools.json' --exclude='generated' --exclude='package.json' generated/ ./ || [ $? -eq 24 ]
+          [ -f generated/package.json ] && cp generated/package.json package.json || true
           npm pkg set name="@anchormarket/anchormarket-sdk-typescript"
           npm pkg set version="${{ inputs.source_version }}"
           npm pkg set publishConfig.registry="https://npm.pkg.github.com"

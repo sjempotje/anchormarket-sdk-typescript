@@ -1,47 +1,44 @@
-# .WalletsApi
+# WalletsApi
 
 All URIs are relative to *http://localhost:5079*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**apiWalletsIdGet**](WalletsApi.md#apiWalletsIdGet) | **GET** /api/Wallets/{id} | 
-[**apiWalletsIdTransactionsGet**](WalletsApi.md#apiWalletsIdTransactionsGet) | **GET** /api/Wallets/{id}/transactions | 
-
+|Method | HTTP request | Description|
+|------------- | ------------- | -------------|
+|[**apiWalletsIdGet**](#apiwalletsidget) | **GET** /api/Wallets/{id} | |
+|[**apiWalletsIdTransactionsGet**](#apiwalletsidtransactionsget) | **GET** /api/Wallets/{id}/transactions | |
 
 # **apiWalletsIdGet**
-> void apiWalletsIdGet()
+> apiWalletsIdGet()
 
 
 ### Example
 
-
 ```typescript
-import { createConfiguration, WalletsApi } from '';
-import type { WalletsApiApiWalletsIdGetRequest } from '';
+import {
+    WalletsApi,
+    Configuration
+} from './api';
 
-const configuration = createConfiguration();
+const configuration = new Configuration();
 const apiInstance = new WalletsApi(configuration);
 
-const request: WalletsApiApiWalletsIdGetRequest = {
-  
-  id: "id_example",
-};
+let id: string; // (default to undefined)
 
-const data = await apiInstance.apiWalletsIdGet(request);
-console.log('API called successfully. Returned data:', data);
+const { status, data } = await apiInstance.apiWalletsIdGet(
+    id
+);
 ```
-
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | [**string**] |  | defaults to undefined
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**string**] |  | defaults to undefined|
 
 
 ### Return type
 
-**void**
+void (empty response body)
 
 ### Authorization
 
@@ -56,44 +53,42 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+|**200** | OK |  -  |
 
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **apiWalletsIdTransactionsGet**
-> void apiWalletsIdTransactionsGet()
+> apiWalletsIdTransactionsGet()
 
 
 ### Example
 
-
 ```typescript
-import { createConfiguration, WalletsApi } from '';
-import type { WalletsApiApiWalletsIdTransactionsGetRequest } from '';
+import {
+    WalletsApi,
+    Configuration
+} from './api';
 
-const configuration = createConfiguration();
+const configuration = new Configuration();
 const apiInstance = new WalletsApi(configuration);
 
-const request: WalletsApiApiWalletsIdTransactionsGetRequest = {
-  
-  id: "id_example",
-};
+let id: string; // (default to undefined)
 
-const data = await apiInstance.apiWalletsIdTransactionsGet(request);
-console.log('API called successfully. Returned data:', data);
+const { status, data } = await apiInstance.apiWalletsIdTransactionsGet(
+    id
+);
 ```
-
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | [**string**] |  | defaults to undefined
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**string**] |  | defaults to undefined|
 
 
 ### Return type
 
-**void**
+void (empty response body)
 
 ### Authorization
 
@@ -108,8 +103,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+|**200** | OK |  -  |
 
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

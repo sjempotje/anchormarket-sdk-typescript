@@ -1,54 +1,51 @@
-# .PositionsApi
+# PositionsApi
 
 All URIs are relative to *http://localhost:5079*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**apiPositionsByMarketMarketIdGet**](PositionsApi.md#apiPositionsByMarketMarketIdGet) | **GET** /api/Positions/by-market/{marketId} | 
-[**apiPositionsGet**](PositionsApi.md#apiPositionsGet) | **GET** /api/Positions | 
-[**apiPositionsIdClosePost**](PositionsApi.md#apiPositionsIdClosePost) | **POST** /api/Positions/{id}/close | 
-[**apiPositionsIdGet**](PositionsApi.md#apiPositionsIdGet) | **GET** /api/Positions/{id} | 
-[**apiPositionsPost**](PositionsApi.md#apiPositionsPost) | **POST** /api/Positions | 
-[**apiPositionsWithPnlGet**](PositionsApi.md#apiPositionsWithPnlGet) | **GET** /api/Positions/with-pnl | 
-
+|Method | HTTP request | Description|
+|------------- | ------------- | -------------|
+|[**apiPositionsByMarketMarketIdGet**](#apipositionsbymarketmarketidget) | **GET** /api/Positions/by-market/{marketId} | |
+|[**apiPositionsGet**](#apipositionsget) | **GET** /api/Positions | |
+|[**apiPositionsIdClosePost**](#apipositionsidclosepost) | **POST** /api/Positions/{id}/close | |
+|[**apiPositionsIdGet**](#apipositionsidget) | **GET** /api/Positions/{id} | |
+|[**apiPositionsPost**](#apipositionspost) | **POST** /api/Positions | |
+|[**apiPositionsWithPnlGet**](#apipositionswithpnlget) | **GET** /api/Positions/with-pnl | |
 
 # **apiPositionsByMarketMarketIdGet**
-> void apiPositionsByMarketMarketIdGet()
+> apiPositionsByMarketMarketIdGet()
 
 
 ### Example
 
-
 ```typescript
-import { createConfiguration, PositionsApi } from '';
-import type { PositionsApiApiPositionsByMarketMarketIdGetRequest } from '';
+import {
+    PositionsApi,
+    Configuration
+} from './api';
 
-const configuration = createConfiguration();
+const configuration = new Configuration();
 const apiInstance = new PositionsApi(configuration);
 
-const request: PositionsApiApiPositionsByMarketMarketIdGetRequest = {
-  
-  marketId: "marketId_example",
-  
-  userId: "userId_example",
-};
+let marketId: string; // (default to undefined)
+let userId: string; // (optional) (default to undefined)
 
-const data = await apiInstance.apiPositionsByMarketMarketIdGet(request);
-console.log('API called successfully. Returned data:', data);
+const { status, data } = await apiInstance.apiPositionsByMarketMarketIdGet(
+    marketId,
+    userId
+);
 ```
-
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **marketId** | [**string**] |  | defaults to undefined
- **userId** | [**string**] |  | (optional) defaults to undefined
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **marketId** | [**string**] |  | defaults to undefined|
+| **userId** | [**string**] |  | (optional) defaults to undefined|
 
 
 ### Return type
 
-**void**
+void (empty response body)
 
 ### Authorization
 
@@ -63,37 +60,35 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+|**200** | OK |  -  |
 
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **apiPositionsGet**
-> void apiPositionsGet()
+> apiPositionsGet()
 
 
 ### Example
 
-
 ```typescript
-import { createConfiguration, PositionsApi } from '';
+import {
+    PositionsApi,
+    Configuration
+} from './api';
 
-const configuration = createConfiguration();
+const configuration = new Configuration();
 const apiInstance = new PositionsApi(configuration);
 
-const request = {};
-
-const data = await apiInstance.apiPositionsGet(request);
-console.log('API called successfully. Returned data:', data);
+const { status, data } = await apiInstance.apiPositionsGet();
 ```
 
-
 ### Parameters
-This endpoint does not need any parameter.
+This endpoint does not have any parameters.
 
 
 ### Return type
 
-**void**
+void (empty response body)
 
 ### Authorization
 
@@ -108,47 +103,45 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+|**200** | OK |  -  |
 
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **apiPositionsIdClosePost**
-> void apiPositionsIdClosePost()
+> apiPositionsIdClosePost()
 
 
 ### Example
 
-
 ```typescript
-import { createConfiguration, PositionsApi } from '';
-import type { PositionsApiApiPositionsIdClosePostRequest } from '';
+import {
+    PositionsApi,
+    Configuration
+} from './api';
 
-const configuration = createConfiguration();
+const configuration = new Configuration();
 const apiInstance = new PositionsApi(configuration);
 
-const request: PositionsApiApiPositionsIdClosePostRequest = {
-  
-  id: "id_example",
-  
-  userId: "userId_example",
-};
+let id: string; // (default to undefined)
+let userId: string; // (optional) (default to undefined)
 
-const data = await apiInstance.apiPositionsIdClosePost(request);
-console.log('API called successfully. Returned data:', data);
+const { status, data } = await apiInstance.apiPositionsIdClosePost(
+    id,
+    userId
+);
 ```
-
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | [**string**] |  | defaults to undefined
- **userId** | [**string**] |  | (optional) defaults to undefined
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**string**] |  | defaults to undefined|
+| **userId** | [**string**] |  | (optional) defaults to undefined|
 
 
 ### Return type
 
-**void**
+void (empty response body)
 
 ### Authorization
 
@@ -163,44 +156,42 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+|**200** | OK |  -  |
 
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **apiPositionsIdGet**
-> void apiPositionsIdGet()
+> apiPositionsIdGet()
 
 
 ### Example
 
-
 ```typescript
-import { createConfiguration, PositionsApi } from '';
-import type { PositionsApiApiPositionsIdGetRequest } from '';
+import {
+    PositionsApi,
+    Configuration
+} from './api';
 
-const configuration = createConfiguration();
+const configuration = new Configuration();
 const apiInstance = new PositionsApi(configuration);
 
-const request: PositionsApiApiPositionsIdGetRequest = {
-  
-  id: "id_example",
-};
+let id: string; // (default to undefined)
 
-const data = await apiInstance.apiPositionsIdGet(request);
-console.log('API called successfully. Returned data:', data);
+const { status, data } = await apiInstance.apiPositionsIdGet(
+    id
+);
 ```
-
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | [**string**] |  | defaults to undefined
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**string**] |  | defaults to undefined|
 
 
 ### Return type
 
-**void**
+void (empty response body)
 
 ### Authorization
 
@@ -215,49 +206,43 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+|**200** | OK |  -  |
 
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **apiPositionsPost**
-> void apiPositionsPost(placePositionCommand)
+> apiPositionsPost(placePositionCommand)
 
 
 ### Example
 
-
 ```typescript
-import { createConfiguration, PositionsApi } from '';
-import type { PositionsApiApiPositionsPostRequest } from '';
+import {
+    PositionsApi,
+    Configuration,
+    PlacePositionCommand
+} from './api';
 
-const configuration = createConfiguration();
+const configuration = new Configuration();
 const apiInstance = new PositionsApi(configuration);
 
-const request: PositionsApiApiPositionsPostRequest = {
-  
-  placePositionCommand: {
-    userId: "userId_example",
-    marketId: "marketId_example",
-    outcomeId: "outcomeId_example",
-    amount: 3.14,
-  },
-};
+let placePositionCommand: PlacePositionCommand; //
 
-const data = await apiInstance.apiPositionsPost(request);
-console.log('API called successfully. Returned data:', data);
+const { status, data } = await apiInstance.apiPositionsPost(
+    placePositionCommand
+);
 ```
-
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **placePositionCommand** | **PlacePositionCommand**|  |
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **placePositionCommand** | **PlacePositionCommand**|  | |
 
 
 ### Return type
 
-**void**
+void (empty response body)
 
 ### Authorization
 
@@ -272,37 +257,35 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+|**200** | OK |  -  |
 
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **apiPositionsWithPnlGet**
-> void apiPositionsWithPnlGet()
+> apiPositionsWithPnlGet()
 
 
 ### Example
 
-
 ```typescript
-import { createConfiguration, PositionsApi } from '';
+import {
+    PositionsApi,
+    Configuration
+} from './api';
 
-const configuration = createConfiguration();
+const configuration = new Configuration();
 const apiInstance = new PositionsApi(configuration);
 
-const request = {};
-
-const data = await apiInstance.apiPositionsWithPnlGet(request);
-console.log('API called successfully. Returned data:', data);
+const { status, data } = await apiInstance.apiPositionsWithPnlGet();
 ```
 
-
 ### Parameters
-This endpoint does not need any parameter.
+This endpoint does not have any parameters.
 
 
 ### Return type
 
-**void**
+void (empty response body)
 
 ### Authorization
 
@@ -317,8 +300,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+|**200** | OK |  -  |
 
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

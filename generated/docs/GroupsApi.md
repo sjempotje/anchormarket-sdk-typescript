@@ -1,43 +1,40 @@
-# .GroupsApi
+# GroupsApi
 
 All URIs are relative to *http://localhost:5079*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**apiGroupsGet**](GroupsApi.md#apiGroupsGet) | **GET** /api/Groups | 
-[**apiGroupsIdDelete**](GroupsApi.md#apiGroupsIdDelete) | **DELETE** /api/Groups/{id} | 
-[**apiGroupsIdGet**](GroupsApi.md#apiGroupsIdGet) | **GET** /api/Groups/{id} | 
-[**apiGroupsIdPut**](GroupsApi.md#apiGroupsIdPut) | **PUT** /api/Groups/{id} | 
-[**apiGroupsPost**](GroupsApi.md#apiGroupsPost) | **POST** /api/Groups | 
-
+|Method | HTTP request | Description|
+|------------- | ------------- | -------------|
+|[**apiGroupsGet**](#apigroupsget) | **GET** /api/Groups | |
+|[**apiGroupsIdDelete**](#apigroupsiddelete) | **DELETE** /api/Groups/{id} | |
+|[**apiGroupsIdGet**](#apigroupsidget) | **GET** /api/Groups/{id} | |
+|[**apiGroupsIdPut**](#apigroupsidput) | **PUT** /api/Groups/{id} | |
+|[**apiGroupsPost**](#apigroupspost) | **POST** /api/Groups | |
 
 # **apiGroupsGet**
-> void apiGroupsGet()
+> apiGroupsGet()
 
 
 ### Example
 
-
 ```typescript
-import { createConfiguration, GroupsApi } from '';
+import {
+    GroupsApi,
+    Configuration
+} from './api';
 
-const configuration = createConfiguration();
+const configuration = new Configuration();
 const apiInstance = new GroupsApi(configuration);
 
-const request = {};
-
-const data = await apiInstance.apiGroupsGet(request);
-console.log('API called successfully. Returned data:', data);
+const { status, data } = await apiInstance.apiGroupsGet();
 ```
 
-
 ### Parameters
-This endpoint does not need any parameter.
+This endpoint does not have any parameters.
 
 
 ### Return type
 
-**void**
+void (empty response body)
 
 ### Authorization
 
@@ -52,44 +49,42 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+|**200** | OK |  -  |
 
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **apiGroupsIdDelete**
-> void apiGroupsIdDelete()
+> apiGroupsIdDelete()
 
 
 ### Example
 
-
 ```typescript
-import { createConfiguration, GroupsApi } from '';
-import type { GroupsApiApiGroupsIdDeleteRequest } from '';
+import {
+    GroupsApi,
+    Configuration
+} from './api';
 
-const configuration = createConfiguration();
+const configuration = new Configuration();
 const apiInstance = new GroupsApi(configuration);
 
-const request: GroupsApiApiGroupsIdDeleteRequest = {
-  
-  id: "id_example",
-};
+let id: string; // (default to undefined)
 
-const data = await apiInstance.apiGroupsIdDelete(request);
-console.log('API called successfully. Returned data:', data);
+const { status, data } = await apiInstance.apiGroupsIdDelete(
+    id
+);
 ```
-
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | [**string**] |  | defaults to undefined
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**string**] |  | defaults to undefined|
 
 
 ### Return type
 
-**void**
+void (empty response body)
 
 ### Authorization
 
@@ -104,44 +99,42 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+|**200** | OK |  -  |
 
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **apiGroupsIdGet**
-> void apiGroupsIdGet()
+> apiGroupsIdGet()
 
 
 ### Example
 
-
 ```typescript
-import { createConfiguration, GroupsApi } from '';
-import type { GroupsApiApiGroupsIdGetRequest } from '';
+import {
+    GroupsApi,
+    Configuration
+} from './api';
 
-const configuration = createConfiguration();
+const configuration = new Configuration();
 const apiInstance = new GroupsApi(configuration);
 
-const request: GroupsApiApiGroupsIdGetRequest = {
-  
-  id: "id_example",
-};
+let id: string; // (default to undefined)
 
-const data = await apiInstance.apiGroupsIdGet(request);
-console.log('API called successfully. Returned data:', data);
+const { status, data } = await apiInstance.apiGroupsIdGet(
+    id
+);
 ```
-
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | [**string**] |  | defaults to undefined
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**string**] |  | defaults to undefined|
 
 
 ### Return type
 
-**void**
+void (empty response body)
 
 ### Authorization
 
@@ -156,51 +149,46 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+|**200** | OK |  -  |
 
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **apiGroupsIdPut**
-> void apiGroupsIdPut(updateGroupCommand)
+> apiGroupsIdPut(updateGroupCommand)
 
 
 ### Example
 
-
 ```typescript
-import { createConfiguration, GroupsApi } from '';
-import type { GroupsApiApiGroupsIdPutRequest } from '';
+import {
+    GroupsApi,
+    Configuration,
+    UpdateGroupCommand
+} from './api';
 
-const configuration = createConfiguration();
+const configuration = new Configuration();
 const apiInstance = new GroupsApi(configuration);
 
-const request: GroupsApiApiGroupsIdPutRequest = {
-  
-  id: "id_example",
-  
-  updateGroupCommand: {
-    groupId: "groupId_example",
-    name: "name_example",
-    description: "description_example",
-  },
-};
+let id: string; // (default to undefined)
+let updateGroupCommand: UpdateGroupCommand; //
 
-const data = await apiInstance.apiGroupsIdPut(request);
-console.log('API called successfully. Returned data:', data);
+const { status, data } = await apiInstance.apiGroupsIdPut(
+    id,
+    updateGroupCommand
+);
 ```
-
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **updateGroupCommand** | **UpdateGroupCommand**|  |
- **id** | [**string**] |  | defaults to undefined
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **updateGroupCommand** | **UpdateGroupCommand**|  | |
+| **id** | [**string**] |  | defaults to undefined|
 
 
 ### Return type
 
-**void**
+void (empty response body)
 
 ### Authorization
 
@@ -215,48 +203,43 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+|**200** | OK |  -  |
 
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **apiGroupsPost**
-> void apiGroupsPost(createGroupCommand)
+> apiGroupsPost(createGroupCommand)
 
 
 ### Example
 
-
 ```typescript
-import { createConfiguration, GroupsApi } from '';
-import type { GroupsApiApiGroupsPostRequest } from '';
+import {
+    GroupsApi,
+    Configuration,
+    CreateGroupCommand
+} from './api';
 
-const configuration = createConfiguration();
+const configuration = new Configuration();
 const apiInstance = new GroupsApi(configuration);
 
-const request: GroupsApiApiGroupsPostRequest = {
-  
-  createGroupCommand: {
-    name: "name_example",
-    description: "description_example",
-    ownerId: "ownerId_example",
-  },
-};
+let createGroupCommand: CreateGroupCommand; //
 
-const data = await apiInstance.apiGroupsPost(request);
-console.log('API called successfully. Returned data:', data);
+const { status, data } = await apiInstance.apiGroupsPost(
+    createGroupCommand
+);
 ```
-
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **createGroupCommand** | **CreateGroupCommand**|  |
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **createGroupCommand** | **CreateGroupCommand**|  | |
 
 
 ### Return type
 
-**void**
+void (empty response body)
 
 ### Authorization
 
@@ -271,8 +254,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+|**200** | OK |  -  |
 
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

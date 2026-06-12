@@ -5,7 +5,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**userId** | **string** |  | [default to undefined]
 **marketId** | **string** |  | [default to undefined]
 **outcomeId** | **string** |  | [default to undefined]
 **side** | **number** |  | [default to undefined]
@@ -19,7 +18,6 @@ Name | Type | Description | Notes
 import { PlaceLimitOrderRequest } from '@anchormarket/anchormarket-sdk-typescript';
 
 const instance: PlaceLimitOrderRequest = {
-    userId,
     marketId,
     outcomeId,
     side,

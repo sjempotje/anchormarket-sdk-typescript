@@ -1,6 +1,5 @@
 .gitignore
 .npmignore
-.openapi-generator-ignore
 README.md
 api.ts
 base.ts
@@ -35,7 +34,6 @@ docs/PlacePositionCommand.md
 docs/PositionsApi.md
 docs/ProblemDetails.md
 docs/ProblemDetailsStatus.md
-docs/RegisterUserCommand.md
 docs/ResolveGroupMarketCommand.md
 docs/TradeExecution.md
 docs/TradeExecutionDto.md

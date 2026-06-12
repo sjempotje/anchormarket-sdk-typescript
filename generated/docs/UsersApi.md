@@ -7,7 +7,6 @@ All URIs are relative to *http://localhost:5079*
 |[**apiUsersIdDelete**](#apiusersiddelete) | **DELETE** /api/Users/{id} | |
 |[**apiUsersIdGet**](#apiusersidget) | **GET** /api/Users/{id} | |
 |[**apiUsersIdPut**](#apiusersidput) | **PUT** /api/Users/{id} | |
-|[**apiUsersRegisterPost**](#apiusersregisterpost) | **POST** /api/Users/register | |
 
 # **apiUsersIdDelete**
 > apiUsersIdDelete()
@@ -140,57 +139,6 @@ const { status, data } = await apiInstance.apiUsersIdPut(
 |------------- | ------------- | ------------- | -------------|
 | **updateUserCommand** | **UpdateUserCommand**|  | |
 | **id** | [**string**] |  | defaults to undefined|
-
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json, text/json, application/*+json
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-|**200** | OK |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **apiUsersRegisterPost**
-> apiUsersRegisterPost(registerUserCommand)
-
-
-### Example
-
-```typescript
-import {
-    UsersApi,
-    Configuration,
-    RegisterUserCommand
-} from '@anchormarket/anchormarket-sdk-typescript';
-
-const configuration = new Configuration();
-const apiInstance = new UsersApi(configuration);
-
-let registerUserCommand: RegisterUserCommand; //
-
-const { status, data } = await apiInstance.apiUsersRegisterPost(
-    registerUserCommand
-);
-```
-
-### Parameters
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **registerUserCommand** | **RegisterUserCommand**|  | |
 
 
 ### Return type

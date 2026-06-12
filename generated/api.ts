@@ -202,7 +202,6 @@ export interface Outcome {
     'updatedAt'?: string | null;
 }
 export interface PlaceLimitOrderRequest {
-    'userId': string;
     'marketId': string;
     'outcomeId': string;
     'side': number;
@@ -224,10 +223,6 @@ export interface ProblemDetails {
     'instance'?: string | null;
 }
 export interface ProblemDetailsStatus {
-}
-export interface RegisterUserCommand {
-    'username': string;
-    'email': string;
 }
 export interface ResolveGroupMarketCommand {
     'marketId': string;
@@ -287,11 +282,10 @@ export const GroupMarketsApiAxiosParamCreator = function (configuration?: Config
         /**
          * 
          * @param {string} [groupId] 
-         * @param {string} [requestingUserId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiGroupMarketsGet: async (groupId?: string, requestingUserId?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        apiGroupMarketsGet: async (groupId?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/group-markets`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -306,10 +300,6 @@ export const GroupMarketsApiAxiosParamCreator = function (configuration?: Config
 
             if (groupId !== undefined) {
                 localVarQueryParameter['groupId'] = groupId;
-            }
-
-            if (requestingUserId !== undefined) {
-                localVarQueryParameter['requestingUserId'] = requestingUserId;
             }
 
 
@@ -473,12 +463,11 @@ export const GroupMarketsApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @param {string} [groupId] 
-         * @param {string} [requestingUserId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiGroupMarketsGet(groupId?: string, requestingUserId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiGroupMarketsGet(groupId, requestingUserId, options);
+        async apiGroupMarketsGet(groupId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiGroupMarketsGet(groupId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['GroupMarketsApi.apiGroupMarketsGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -545,12 +534,11 @@ export const GroupMarketsApiFactory = function (configuration?: Configuration, b
         /**
          * 
          * @param {string} [groupId] 
-         * @param {string} [requestingUserId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiGroupMarketsGet(groupId?: string, requestingUserId?: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.apiGroupMarketsGet(groupId, requestingUserId, options).then((request) => request(axios, basePath));
+        apiGroupMarketsGet(groupId?: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.apiGroupMarketsGet(groupId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -600,12 +588,11 @@ export class GroupMarketsApi extends BaseAPI {
     /**
      * 
      * @param {string} [groupId] 
-     * @param {string} [requestingUserId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public apiGroupMarketsGet(groupId?: string, requestingUserId?: string, options?: RawAxiosRequestConfig) {
-        return GroupMarketsApiFp(this.configuration).apiGroupMarketsGet(groupId, requestingUserId, options).then((request) => request(this.axios, this.basePath));
+    public apiGroupMarketsGet(groupId?: string, options?: RawAxiosRequestConfig) {
+        return GroupMarketsApiFp(this.configuration).apiGroupMarketsGet(groupId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1906,11 +1893,10 @@ export const PositionsApiAxiosParamCreator = function (configuration?: Configura
         /**
          * 
          * @param {string} marketId 
-         * @param {string} [userId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiPositionsByMarketMarketIdGet: async (marketId: string, userId?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        apiPositionsByMarketMarketIdGet: async (marketId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'marketId' is not null or undefined
             assertParamExists('apiPositionsByMarketMarketIdGet', 'marketId', marketId)
             const localVarPath = `/api/Positions/by-market/{marketId}`
@@ -1925,10 +1911,6 @@ export const PositionsApiAxiosParamCreator = function (configuration?: Configura
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
-
-            if (userId !== undefined) {
-                localVarQueryParameter['userId'] = userId;
-            }
 
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -1971,11 +1953,10 @@ export const PositionsApiAxiosParamCreator = function (configuration?: Configura
         /**
          * 
          * @param {string} id 
-         * @param {string} [userId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiPositionsIdClosePost: async (id: string, userId?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        apiPositionsIdClosePost: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('apiPositionsIdClosePost', 'id', id)
             const localVarPath = `/api/Positions/{id}/close`
@@ -1990,10 +1971,6 @@ export const PositionsApiAxiosParamCreator = function (configuration?: Configura
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
-
-            if (userId !== undefined) {
-                localVarQueryParameter['userId'] = userId;
-            }
 
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -2110,12 +2087,11 @@ export const PositionsApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @param {string} marketId 
-         * @param {string} [userId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiPositionsByMarketMarketIdGet(marketId: string, userId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiPositionsByMarketMarketIdGet(marketId, userId, options);
+        async apiPositionsByMarketMarketIdGet(marketId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiPositionsByMarketMarketIdGet(marketId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PositionsApi.apiPositionsByMarketMarketIdGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2134,12 +2110,11 @@ export const PositionsApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @param {string} id 
-         * @param {string} [userId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiPositionsIdClosePost(id: string, userId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiPositionsIdClosePost(id, userId, options);
+        async apiPositionsIdClosePost(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiPositionsIdClosePost(id, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PositionsApi.apiPositionsIdClosePost']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2191,12 +2166,11 @@ export const PositionsApiFactory = function (configuration?: Configuration, base
         /**
          * 
          * @param {string} marketId 
-         * @param {string} [userId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiPositionsByMarketMarketIdGet(marketId: string, userId?: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.apiPositionsByMarketMarketIdGet(marketId, userId, options).then((request) => request(axios, basePath));
+        apiPositionsByMarketMarketIdGet(marketId: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.apiPositionsByMarketMarketIdGet(marketId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -2209,12 +2183,11 @@ export const PositionsApiFactory = function (configuration?: Configuration, base
         /**
          * 
          * @param {string} id 
-         * @param {string} [userId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiPositionsIdClosePost(id: string, userId?: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.apiPositionsIdClosePost(id, userId, options).then((request) => request(axios, basePath));
+        apiPositionsIdClosePost(id: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.apiPositionsIdClosePost(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -2252,12 +2225,11 @@ export class PositionsApi extends BaseAPI {
     /**
      * 
      * @param {string} marketId 
-     * @param {string} [userId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public apiPositionsByMarketMarketIdGet(marketId: string, userId?: string, options?: RawAxiosRequestConfig) {
-        return PositionsApiFp(this.configuration).apiPositionsByMarketMarketIdGet(marketId, userId, options).then((request) => request(this.axios, this.basePath));
+    public apiPositionsByMarketMarketIdGet(marketId: string, options?: RawAxiosRequestConfig) {
+        return PositionsApiFp(this.configuration).apiPositionsByMarketMarketIdGet(marketId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2272,12 +2244,11 @@ export class PositionsApi extends BaseAPI {
     /**
      * 
      * @param {string} id 
-     * @param {string} [userId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public apiPositionsIdClosePost(id: string, userId?: string, options?: RawAxiosRequestConfig) {
-        return PositionsApiFp(this.configuration).apiPositionsIdClosePost(id, userId, options).then((request) => request(this.axios, this.basePath));
+    public apiPositionsIdClosePost(id: string, options?: RawAxiosRequestConfig) {
+        return PositionsApiFp(this.configuration).apiPositionsIdClosePost(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2418,39 +2389,6 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
                 options: localVarRequestOptions,
             };
         },
-        /**
-         * 
-         * @param {RegisterUserCommand} registerUserCommand 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        apiUsersRegisterPost: async (registerUserCommand: RegisterUserCommand, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'registerUserCommand' is not null or undefined
-            assertParamExists('apiUsersRegisterPost', 'registerUserCommand', registerUserCommand)
-            const localVarPath = `/api/Users/register`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(registerUserCommand, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
     }
 };
 
@@ -2497,18 +2435,6 @@ export const UsersApiFp = function(configuration?: Configuration) {
             const localVarOperationServerBasePath = operationServerMap['UsersApi.apiUsersIdPut']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
-        /**
-         * 
-         * @param {RegisterUserCommand} registerUserCommand 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async apiUsersRegisterPost(registerUserCommand: RegisterUserCommand, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiUsersRegisterPost(registerUserCommand, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['UsersApi.apiUsersRegisterPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
     }
 };
 
@@ -2546,15 +2472,6 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
         apiUsersIdPut(id: string, updateUserCommand: UpdateUserCommand, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.apiUsersIdPut(id, updateUserCommand, options).then((request) => request(axios, basePath));
         },
-        /**
-         * 
-         * @param {RegisterUserCommand} registerUserCommand 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        apiUsersRegisterPost(registerUserCommand: RegisterUserCommand, options?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.apiUsersRegisterPost(registerUserCommand, options).then((request) => request(axios, basePath));
-        },
     };
 };
 
@@ -2591,16 +2508,6 @@ export class UsersApi extends BaseAPI {
      */
     public apiUsersIdPut(id: string, updateUserCommand: UpdateUserCommand, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).apiUsersIdPut(id, updateUserCommand, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @param {RegisterUserCommand} registerUserCommand 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public apiUsersRegisterPost(registerUserCommand: RegisterUserCommand, options?: RawAxiosRequestConfig) {
-        return UsersApiFp(this.configuration).apiUsersRegisterPost(registerUserCommand, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

@@ -1,49 +1,46 @@
-# .UsersApi
+# UsersApi
 
 All URIs are relative to *http://localhost:5079*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**apiUsersIdDelete**](UsersApi.md#apiUsersIdDelete) | **DELETE** /api/Users/{id} | 
-[**apiUsersIdGet**](UsersApi.md#apiUsersIdGet) | **GET** /api/Users/{id} | 
-[**apiUsersIdPut**](UsersApi.md#apiUsersIdPut) | **PUT** /api/Users/{id} | 
-[**apiUsersRegisterPost**](UsersApi.md#apiUsersRegisterPost) | **POST** /api/Users/register | 
-
+|Method | HTTP request | Description|
+|------------- | ------------- | -------------|
+|[**apiUsersIdDelete**](#apiusersiddelete) | **DELETE** /api/Users/{id} | |
+|[**apiUsersIdGet**](#apiusersidget) | **GET** /api/Users/{id} | |
+|[**apiUsersIdPut**](#apiusersidput) | **PUT** /api/Users/{id} | |
+|[**apiUsersRegisterPost**](#apiusersregisterpost) | **POST** /api/Users/register | |
 
 # **apiUsersIdDelete**
-> void apiUsersIdDelete()
+> apiUsersIdDelete()
 
 
 ### Example
 
-
 ```typescript
-import { createConfiguration, UsersApi } from '';
-import type { UsersApiApiUsersIdDeleteRequest } from '';
+import {
+    UsersApi,
+    Configuration
+} from './api';
 
-const configuration = createConfiguration();
+const configuration = new Configuration();
 const apiInstance = new UsersApi(configuration);
 
-const request: UsersApiApiUsersIdDeleteRequest = {
-  
-  id: "id_example",
-};
+let id: string; // (default to undefined)
 
-const data = await apiInstance.apiUsersIdDelete(request);
-console.log('API called successfully. Returned data:', data);
+const { status, data } = await apiInstance.apiUsersIdDelete(
+    id
+);
 ```
-
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | [**string**] |  | defaults to undefined
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**string**] |  | defaults to undefined|
 
 
 ### Return type
 
-**void**
+void (empty response body)
 
 ### Authorization
 
@@ -58,44 +55,42 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+|**200** | OK |  -  |
 
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **apiUsersIdGet**
-> void apiUsersIdGet()
+> apiUsersIdGet()
 
 
 ### Example
 
-
 ```typescript
-import { createConfiguration, UsersApi } from '';
-import type { UsersApiApiUsersIdGetRequest } from '';
+import {
+    UsersApi,
+    Configuration
+} from './api';
 
-const configuration = createConfiguration();
+const configuration = new Configuration();
 const apiInstance = new UsersApi(configuration);
 
-const request: UsersApiApiUsersIdGetRequest = {
-  
-  id: "id_example",
-};
+let id: string; // (default to undefined)
 
-const data = await apiInstance.apiUsersIdGet(request);
-console.log('API called successfully. Returned data:', data);
+const { status, data } = await apiInstance.apiUsersIdGet(
+    id
+);
 ```
-
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | [**string**] |  | defaults to undefined
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**string**] |  | defaults to undefined|
 
 
 ### Return type
 
-**void**
+void (empty response body)
 
 ### Authorization
 
@@ -110,51 +105,46 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+|**200** | OK |  -  |
 
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **apiUsersIdPut**
-> void apiUsersIdPut(updateUserCommand)
+> apiUsersIdPut(updateUserCommand)
 
 
 ### Example
 
-
 ```typescript
-import { createConfiguration, UsersApi } from '';
-import type { UsersApiApiUsersIdPutRequest } from '';
+import {
+    UsersApi,
+    Configuration,
+    UpdateUserCommand
+} from './api';
 
-const configuration = createConfiguration();
+const configuration = new Configuration();
 const apiInstance = new UsersApi(configuration);
 
-const request: UsersApiApiUsersIdPutRequest = {
-  
-  id: "id_example",
-  
-  updateUserCommand: {
-    userId: "userId_example",
-    username: "username_example",
-    email: "email_example",
-  },
-};
+let id: string; // (default to undefined)
+let updateUserCommand: UpdateUserCommand; //
 
-const data = await apiInstance.apiUsersIdPut(request);
-console.log('API called successfully. Returned data:', data);
+const { status, data } = await apiInstance.apiUsersIdPut(
+    id,
+    updateUserCommand
+);
 ```
-
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **updateUserCommand** | **UpdateUserCommand**|  |
- **id** | [**string**] |  | defaults to undefined
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **updateUserCommand** | **UpdateUserCommand**|  | |
+| **id** | [**string**] |  | defaults to undefined|
 
 
 ### Return type
 
-**void**
+void (empty response body)
 
 ### Authorization
 
@@ -169,47 +159,43 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+|**200** | OK |  -  |
 
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **apiUsersRegisterPost**
-> void apiUsersRegisterPost(registerUserCommand)
+> apiUsersRegisterPost(registerUserCommand)
 
 
 ### Example
 
-
 ```typescript
-import { createConfiguration, UsersApi } from '';
-import type { UsersApiApiUsersRegisterPostRequest } from '';
+import {
+    UsersApi,
+    Configuration,
+    RegisterUserCommand
+} from './api';
 
-const configuration = createConfiguration();
+const configuration = new Configuration();
 const apiInstance = new UsersApi(configuration);
 
-const request: UsersApiApiUsersRegisterPostRequest = {
-  
-  registerUserCommand: {
-    username: "username_example",
-    email: "email_example",
-  },
-};
+let registerUserCommand: RegisterUserCommand; //
 
-const data = await apiInstance.apiUsersRegisterPost(request);
-console.log('API called successfully. Returned data:', data);
+const { status, data } = await apiInstance.apiUsersRegisterPost(
+    registerUserCommand
+);
 ```
-
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **registerUserCommand** | **RegisterUserCommand**|  |
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **registerUserCommand** | **RegisterUserCommand**|  | |
 
 
 ### Return type
 
-**void**
+void (empty response body)
 
 ### Authorization
 
@@ -224,8 +210,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+|**200** | OK |  -  |
 
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

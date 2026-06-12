@@ -1,4 +1,4 @@
-## @anchormarket/anchormarket-sdk-typescript@1.0.1
+## @anchormarket/anchormarket-sdk-typescript@1.0.2
 
 This generator creates TypeScript/JavaScript client that utilizes [axios](https://github.com/axios/axios). The generated Node module can be used in the following environments:
 
@@ -36,7 +36,7 @@ navigate to the folder of your consuming project and run one of the following co
 _published:_
 
 ```
-npm install @anchormarket/anchormarket-sdk-typescript@1.0.1 --save
+npm install @anchormarket/anchormarket-sdk-typescript@1.0.2 --save
 ```
 
 _unPublished (not recommended):_
@@ -82,7 +82,6 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**apiUsersIdDelete**](docs/UsersApi.md#apiusersiddelete) | **DELETE** /api/Users/{id} | 
 *UsersApi* | [**apiUsersIdGet**](docs/UsersApi.md#apiusersidget) | **GET** /api/Users/{id} | 
 *UsersApi* | [**apiUsersIdPut**](docs/UsersApi.md#apiusersidput) | **PUT** /api/Users/{id} | 
-*UsersApi* | [**apiUsersRegisterPost**](docs/UsersApi.md#apiusersregisterpost) | **POST** /api/Users/register | 
 *WalletsApi* | [**apiWalletsIdGet**](docs/WalletsApi.md#apiwalletsidget) | **GET** /api/Wallets/{id} | 
 *WalletsApi* | [**apiWalletsIdTransactionsGet**](docs/WalletsApi.md#apiwalletsidtransactionsget) | **GET** /api/Wallets/{id}/transactions | 
 
@@ -112,7 +111,6 @@ Class | Method | HTTP request | Description
  - [PlacePositionCommand](docs/PlacePositionCommand.md)
  - [ProblemDetails](docs/ProblemDetails.md)
  - [ProblemDetailsStatus](docs/ProblemDetailsStatus.md)
- - [RegisterUserCommand](docs/RegisterUserCommand.md)
  - [ResolveGroupMarketCommand](docs/ResolveGroupMarketCommand.md)
  - [TradeExecution](docs/TradeExecution.md)
  - [TradeExecutionDto](docs/TradeExecutionDto.md)

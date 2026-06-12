@@ -46,14 +46,6 @@
               "type": "string",
               "format": "uuid"
             }
-          },
-          {
-            "name": "requestingUserId",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
           }
         ],
         "responses": {
@@ -1020,14 +1012,6 @@
               "type": "string",
               "format": "uuid"
             }
-          },
-          {
-            "name": "userId",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
           }
         ],
         "responses": {
@@ -1047,14 +1031,6 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "userId",
-            "in": "query",
             "schema": {
               "type": "string",
               "format": "uuid"
@@ -1146,38 +1122,6 @@
             }
           }
         ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Users/register": {
-      "post": {
-        "tags": [
-          "Users"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegisterUserCommand"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegisterUserCommand"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegisterUserCommand"
-              }
-            }
-          },
-          "required": true
-        },
         "responses": {
           "200": {
             "description": "OK"
@@ -2147,7 +2091,6 @@
       },
       "PlaceLimitOrderRequest": {
         "required": [
-          "userId",
           "marketId",
           "outcomeId",
           "side",
@@ -2157,10 +2100,6 @@
         ],
         "type": "object",
         "properties": {
-          "userId": {
-            "type": "string",
-            "format": "uuid"
-          },
           "marketId": {
             "type": "string",
             "format": "uuid"
@@ -2263,21 +2202,6 @@
               "null",
               "string"
             ]
-          }
-        }
-      },
-      "RegisterUserCommand": {
-        "required": [
-          "username",
-          "email"
-        ],
-        "type": "object",
-        "properties": {
-          "username": {
-            "type": "string"
-          },
-          "email": {
-            "type": "string"
           }
         }
       },

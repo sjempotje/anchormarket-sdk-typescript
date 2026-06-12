@@ -26,11 +26,9 @@ const configuration = new Configuration();
 const apiInstance = new GroupMarketsApi(configuration);
 
 let groupId: string; // (optional) (default to undefined)
-let requestingUserId: string; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.apiGroupMarketsGet(
-    groupId,
-    requestingUserId
+    groupId
 );
 ```
 
@@ -39,7 +37,6 @@ const { status, data } = await apiInstance.apiGroupMarketsGet(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **groupId** | [**string**] |  | (optional) defaults to undefined|
-| **requestingUserId** | [**string**] |  | (optional) defaults to undefined|
 
 
 ### Return type

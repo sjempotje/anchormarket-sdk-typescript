@@ -27,11 +27,9 @@ const configuration = new Configuration();
 const apiInstance = new PositionsApi(configuration);
 
 let marketId: string; // (default to undefined)
-let userId: string; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.apiPositionsByMarketMarketIdGet(
-    marketId,
-    userId
+    marketId
 );
 ```
 
@@ -40,7 +38,6 @@ const { status, data } = await apiInstance.apiPositionsByMarketMarketIdGet(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **marketId** | [**string**] |  | defaults to undefined|
-| **userId** | [**string**] |  | (optional) defaults to undefined|
 
 
 ### Return type
@@ -123,11 +120,9 @@ const configuration = new Configuration();
 const apiInstance = new PositionsApi(configuration);
 
 let id: string; // (default to undefined)
-let userId: string; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.apiPositionsIdClosePost(
-    id,
-    userId
+    id
 );
 ```
 
@@ -136,7 +131,6 @@ const { status, data } = await apiInstance.apiPositionsIdClosePost(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **id** | [**string**] |  | defaults to undefined|
-| **userId** | [**string**] |  | (optional) defaults to undefined|
 
 
 ### Return type

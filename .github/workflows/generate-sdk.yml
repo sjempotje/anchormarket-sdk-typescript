@@ -40,7 +40,8 @@ jobs:
           openapi-generator-cli generate \
             -i openapi.json \
             -g ${{ inputs.generator }} \
-            -o generated
+            -o generated \
+            --additional-properties=npmName=@anchormarket/anchormarket-sdk-typescript,npmVersion=${{ inputs.source_version }},supportsES6=true
 
       - name: Create branch
         run: |
@@ -52,6 +53,7 @@ jobs:
         run: |
           rsync -av --delete --exclude='.git' --exclude='.github' --exclude='openapi.json' --exclude='openapitools.json' --exclude='generated' --exclude='package.json' generated/ ./ || [ $? -eq 24 ]
           [ -f generated/package.json ] && cp generated/package.json package.json || true
+          [ -f package.json ] || echo '{}' > package.json
           npm pkg set name="@anchormarket/anchormarket-sdk-typescript"
           npm pkg set version="${{ inputs.source_version }}"
           npm pkg set publishConfig.registry="https://npm.pkg.github.com"
